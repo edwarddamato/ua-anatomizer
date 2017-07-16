@@ -4,7 +4,8 @@
   "description": "User Agent Anatomizer",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "test": ""
+    "test": "",
+    "build": "webpack -p"
   },
   "author": "Edward D'Amato",
   "license": "MIT",
