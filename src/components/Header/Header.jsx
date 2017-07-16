@@ -3,7 +3,7 @@ import './Header.scss';
 
 const Header = () => (
   <header className="header">
-    <h1 className="header_title">User Agent Parser</h1>
+    <h1 className="header_title">User Agent <strong>Anatomizer</strong></h1>
     <nav className="header_nav">
       <ul className="header_nav-list">
         <li className="header_nav-item">

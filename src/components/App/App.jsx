@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../Header';
+import Form from '../Form';
 import './App.scss';
 
 class App extends React.Component {
@@ -7,14 +8,20 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-
+      currentUserAgent: ''
     };
+  }
+
+  componentDidMount () {
+    const currentUserAgent = navigator.userAgent;
+    this.setState({ currentUserAgent });
   }
 
   render () {
     return (
       <section className="root_container">
         <Header />
+        <Form currentUserAgent={this.state.currentUserAgent} />
       </section>
     );
   }

@@ -1,0 +1,40 @@
+@import "../../styles/base";
+
+.form {
+  padding: $outer-padding;
+
+  &_input {
+    width: 100%;
+    height: 300px;
+    border: 1px solid $light-grey;
+    outline: 0;
+    resize: none;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 100;
+    color: $primary-color;
+    transition: border-color .2s ease-in;
+    @include placeholder {
+      color: $grey;
+    }
+    
+    &:focus {
+      border-color: $secondary-color;
+    }
+  }
+
+  &_button {
+    float: right;
+  }
+
+  &_description {
+    font-size: .75rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0;
+    }
+  }
+}

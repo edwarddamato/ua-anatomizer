@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 15px 15px -15px $grey;
+  box-shadow: 0 0 15px -15px $grey;
   border-bottom: 1px solid $light-grey;
 
   &_title {
@@ -16,6 +16,12 @@
     padding: $outer-padding;
     color: $primary-color;
     float: left;
+
+    &:after {
+      content: 'alpha';
+      font-size: .7rem;
+      color: $secondary-color;
+    }
   }
 
   &_nav {
@@ -28,7 +34,7 @@
 
     &-item {
       float: left;
-      color: $primary-color;
+      color: $grey;
 
       &:after {
         content: '';
