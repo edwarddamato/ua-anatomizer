@@ -1,5 +1,5 @@
 {
-  "name": "useragent-anatomizer",
+  "name": "ua-anatomizer",
   "version": "0.0.1",
   "description": "User Agent Anatomizer",
   "scripts": {

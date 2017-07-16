@@ -12,6 +12,10 @@ body {
   color: $primary-color;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +23,6 @@ body {
 h1 {
   margin: 0;
   padding: 0;
-  margin-bottom: 20px;
 }
 
 ul {

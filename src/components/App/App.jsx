@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../Header';
 import './App.scss';
 
 class App extends React.Component {
@@ -13,7 +14,7 @@ class App extends React.Component {
   render () {
     return (
       <section className="root_container">
-        <h1>User Agent Anatomizer</h1>
+        <Header />
       </section>
     );
   }

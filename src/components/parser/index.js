@@ -58,7 +58,7 @@ agents.forEach(agentString => {
   const agentBrowser = `${agent.browser.name} ${agent.browser.major}`;
   setKeyInStat('browsers', agentBrowser);
 
-  const agentDevice = typeof agent.device.vendor ===  typeof undefined ? 'Unknown' : `${agent.device.vendor} ${agent.device.model}`;
+  const agentDevice = typeof agent.device.vendor === typeof undefined ? 'Unknown' : `${agent.device.vendor} ${agent.device.model}`;
   setKeyInStat('devices', agentDevice);
 
   const agentOS = `${agent.os.name} ${agent.os.version.split('.')[0]}`;

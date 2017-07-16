@@ -1,6 +1,16 @@
+@import "_vars";
+
 @mixin center() {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
+}
+
+@mixin link () {
+  color: $secondary-color;
+}
+
+@mixin link--dark() {
+  
 }

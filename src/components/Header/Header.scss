@@ -1,0 +1,55 @@
+@import "../../styles/base";
+
+.header {
+  background-color: $white;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 15px 15px -15px $grey;
+  border-bottom: 1px solid $light-grey;
+
+  &_title {
+    font-weight: 200;
+    font-size: 1.5rem;
+    text-align: right;
+    padding: $outer-padding;
+    color: $primary-color;
+    float: left;
+  }
+
+  &_nav {
+    float: right;
+    padding-right: $outer-padding;
+    
+    &-list {
+      font-size: .75rem;
+    }
+
+    &-item {
+      float: left;
+      color: $primary-color;
+
+      &:after {
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        display: block;
+        background-color: $light-grey;
+        float: left;
+        margin: 0 1rem 0 1rem;
+      }
+
+      &:first-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    &-link {
+      @include link();
+    }
+  }
+}
