@@ -1,5 +1,8 @@
 const parser = require('ua-parser-js');
 
+/* TODO: The code here is a mess and needs to be
+heavily refactored. */
+
 const stats = {
   browsers: { },
   devices: { },
