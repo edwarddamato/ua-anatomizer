@@ -7,7 +7,7 @@
     "test": "",
     "build": "webpack -p"
   },
-  "author": "Edward D'Amato",
+  "author": "Edward D'Amato (github@edwarddamato.com)",
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10",
