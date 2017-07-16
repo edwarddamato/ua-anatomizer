@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { parse } from '../parser';
+import { parse } from '../../parser';
 import './Form.scss';
 
 class Form extends React.Component {
