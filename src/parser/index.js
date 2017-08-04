@@ -1,48 +1,30 @@
-const parser = require('ua-parser-js');
+import parser from 'ua-parser-js';
+import R from 'ramda';
 
-/* TODO: The code here is a mess and needs to be
-heavily refactored. */
-
-const stats = {
+const initialStats = {
   browsers: { },
   devices: { },
-  os: { },
-  total: 0
+  os: { }
 };
 
-const setKeyInStat = (area, key) => {
-  if (typeof stats[area][key] !== typeof undefined) {
-    stats[area][key].count++;
-  } else {
-    stats[area][key] = {
-      count: 1
-    };
-  }
+const incrementer = R.ifElse(R.isNil, R.always(1), R.add(1));
+
+const reducer = (stats, userAgent) => {
+  const browserLens = R.lensPath(['browsers', `${userAgent.browser.name} ${userAgent.browser.major}`]);
+  const osLens = R.lensPath(['os', `${userAgent.os.name} ${userAgent.os.version.split('.')[0]}`]);
+  const deviceLens = R.lensPath(['devices', `${userAgent.device.vendor} ${userAgent.device.model}`]);
+
+  const overBrowsers = R.over(browserLens, incrementer);
+  const overOs = R.over(osLens, incrementer);
+  const overDevices = R.over(deviceLens, incrementer);
+
+  return R.compose(overBrowsers, overOs, overDevices)(stats);
 };
 
-const parse = uas => {
-  uas.forEach(agentString => {
-    stats.total++;
-    const agent = parser(agentString);
+const getUserAgentStrings = R.split('\n');
+const getUserAgentObjects = R.map(parser);
+const reduceUserAgentObjects = R.reduce(reducer, initialStats);
 
-    const agentBrowser = `${agent.browser.name} ${agent.browser.major}`;
-    setKeyInStat('browsers', agentBrowser);
-
-    const agentDevice = typeof agent.device.vendor === typeof undefined ? 'Unknown' : `${agent.device.vendor} ${agent.device.model}`;
-    setKeyInStat('devices', agentDevice);
-
-    const agentOS = `${agent.os.name} ${agent.os.version.split('.')[0]}`;
-    setKeyInStat('os', agentOS);
-  });
-
-  Object.keys(stats).forEach(stat => {
-    Object.keys(stats[stat]).forEach(itemKey => {
-      const item = stats[stat][itemKey];
-      item.percentage = `${parseInt((item.count * 100) / stats.total)}%`;
-    });
-  });
-
-  return stats;
-};
+const parse = R.compose(reduceUserAgentObjects, getUserAgentObjects, getUserAgentStrings);
 
 export { parse };

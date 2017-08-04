@@ -4,13 +4,14 @@
   "description": "User Agent Anatomizer",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "test": "",
+    "test": "jest --verbose --no-cache --runInBand",
     "build": "webpack -p"
   },
   "author": "Edward D'Amato (github@edwarddamato.com)",
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10",
+    "ramda": "^0.24.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "ua-parser-js": "^0.7.13"

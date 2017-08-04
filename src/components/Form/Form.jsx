@@ -20,11 +20,9 @@ class Form extends React.Component {
   }
 
   handleButtonClick () {
-    const inputArr = this.state.currentInput.split('\n');
-    const stats = parse(inputArr);
-    console.table(stats.browsers);
-    console.table(stats.os);
-    console.table(stats.devices);
+    const input = this.state.currentInput;
+    const stats = parse(input);
+    console.log(stats);
   }
 
   render () {
