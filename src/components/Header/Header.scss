@@ -27,6 +27,11 @@
   &_nav {
     float: right;
     padding-right: $outer-padding;
+
+    &-icon {
+      width: 15px;
+      height: 15px;
+    }
     
     &-list {
       font-size: .75rem;
